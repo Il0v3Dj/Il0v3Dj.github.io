@@ -36,6 +36,7 @@
   <p>Hi! I'm John, a San Francisco Photographer. Say hi!</p>
   <input id=Name placeholder="Your name">
   <input id=Instagram type="Instagram" placeholder="Your Instagram @">
+  <input id=Email type="Email" placeholder="Your Email adress">
   <input id=submit type="submit">
   <script type="module">
     // Import the functions you need from the SDKs you need
@@ -61,6 +62,7 @@
 	const db = getDatabase(app);
 	const Name = document.querySelector("#Name")
 	const Instagram = document.querySelector("#Instagram")
+	const Email = document.querySelector("#Email")
 	document.querySelector('#submit').addEventListener('click', Submit)
 	function Submit() {
 	  const timestamp = buildTimestamp()
@@ -68,10 +70,12 @@
 	  set(ref(db, timestamp), {
 		  Name: Name.value,
 	      instagram: Instagram.value,
+		  Email: Email.value,
 	  });
 
 	  Name.value = ""
 	  Instagram.value = ""
+	  Email.value = ""
 	}
 	function buildTimestamp() {
 	  const now = new Date();
